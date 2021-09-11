@@ -11,7 +11,7 @@ class LoginController extends Controller {
         $flash = '';
         if(!empty($_SESSION['flash'])) { 
             $flash = $_SESSION['flash'];
-            $_SESSION['flash'] = '';                //estudar diferença entre '' e ""
+            $_SESSION['flash'] = '';                //estudar diferença entre '' e "" teste
        }
         $this->render('login', ['flash' => $flash ]);
         

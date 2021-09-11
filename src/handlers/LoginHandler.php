@@ -9,7 +9,7 @@ class LoginHandler {
         if(!empty($_SESSION['token'])) {
             $token = $_SESSION['token'];
 
-            $data = User::select()->where('token', $token)->one();
+            $data = User::select()->where('token', $token)->one();  //função one, do model 
             if(count($data) > 0) {
 
                 $loggeddUser = new User();
