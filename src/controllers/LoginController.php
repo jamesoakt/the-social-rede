@@ -13,7 +13,7 @@ class LoginController extends Controller {
             $flash = $_SESSION['flash'];
             $_SESSION['flash'] = '';                //estudar diferença entre '' e "" teste
        }
-        $this->render('login', ['flash' => $flash ]);
+        $this->render('signin', ['flash' => $flash ]);
         
     }
 
@@ -37,6 +37,11 @@ class LoginController extends Controller {
     }
 
     public function signup() {
-        echo 'cadastro';
+        $flash = '';
+        if(!empty($_SESSION['flash'])) { 
+            $flash = $_SESSION['flash'];
+            $_SESSION['flash'] = '';                //estudar diferença entre '' e "" teste
+       }
+        $this->render('signup', ['flash' => $flash ]);
     }
 }
