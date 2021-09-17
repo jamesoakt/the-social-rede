@@ -13,7 +13,7 @@
         </div>
     </header>
     <section class="container main">
-        <form method="POST" action="<?=$base;?>/cadstro">  
+        <form method="POST" action="<?=$base;?>/cadastro">  
         
             <input placeholder="Digite o seu nome" class="input" type="text" name="name" />   
 
