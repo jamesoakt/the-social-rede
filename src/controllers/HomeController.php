@@ -8,10 +8,12 @@ class HomeController extends Controller {
 
     private $loggedUser;                    //refoçar os tipos de variavel
 
-    public function __construct() {         //reforçar tipos de metodos
+    public function __construct() {         //reforçar tipos de metodos __contruct
         $this->LoggedUser = LoginHandler::checkLogin();  //reforçar o para quê serve o this
+        
         if($this->LoggedUser === false) {                      //diferença entre === e ==?
-            $this->redirect('/login');
+        
+            $this->redirect('/login');              //estudar o THIS
         }
         
     }

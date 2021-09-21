@@ -6,15 +6,17 @@ use src\models\User;                         //reforçar o uso de use, namespace
 class LoginHandler {
 
     public static function checkLogin() {        //refoçar a criação de função, static, public etc...
+        
         if(!empty($_SESSION['token'])) {
+            
             $token = $_SESSION['token'];
-
             $data = User::select()->where('token', $token)->one();  //função one, do model 
+            
             if(count($data) > 0) {
 
-                $loggeddUser = new User();
-                $loggedUser->setId($data['id']);
-                $loggedUser->setName($data['name']);
+                $loggedUser = new User();
+                $loggedUser->Id = $data['id'];
+                $loggedUser->Name = $data['name'];
 
                 return $loggedUser;
 
@@ -58,8 +60,8 @@ class LoginHandler {
 
         User::insert([
             'email' => $email,
-            'name' => $hash,
-            'password' => $password,
+            'name' => $name,
+            'password' => $hash,
             'birthdate' => $birthdate,
             'avatar' => 'default.jpg',
             'cover' => 'cover.jpg',

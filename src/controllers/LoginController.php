@@ -8,12 +8,14 @@ use \src\handlers\LoginHandler;
 class LoginController extends Controller {
 
     public function signin() {
-        $flash = '';
+        $flash = '';                        //revisar essa parte da mensagem flash /youtube
+        
         if(!empty($_SESSION['flash'])) { 
+            
             $flash = $_SESSION['flash'];
             $_SESSION['flash'] = '';                //estudar diferença entre '' e "" teste
        }
-        $this->render('signin', ['flash' => $flash ]);
+        $this->render('signin', ['flash' => $flash]);
         
     }
 
@@ -64,7 +66,7 @@ class LoginController extends Controller {
             $this->redirect('/cadastro');
         }
 
-        if(LoginHandler::emailExists($email) == false) {
+        if(LoginHandler::emailExists($email) === false) {            //revisar == e ====s
             $token = LoginHandler::addUser($name, $email, $password, $birthdate);
             $_SESSION['token'] = $token;
             $this->redirect('/');
